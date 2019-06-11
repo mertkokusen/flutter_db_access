@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'Repositories/agent_repository.dart';
+import 'Repositories/cus_agent_repository.gen.dart';
 
 void main() => runApp(MyApp());
 
@@ -21,8 +21,7 @@ class MyApp extends StatelessWidget {
 
   Route<dynamic> onGenerateRoute(RouteSettings settings) {
     return MaterialPageRoute(builder: (_) {
-      return (settings.arguments as RouteArguments)
-          .instanceActivator(settings.arguments);
+      return (settings.arguments as RouteArguments).instanceActivator(settings.arguments);
     });
   }
 }
@@ -66,7 +65,6 @@ class MyHomePage extends ScreenWidget<MyHomePageRouteArguments> {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   void initState() {
     super.initState();
@@ -74,12 +72,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _testDB() async {
     //*Standard method from base repo.
-    var agent = await AgentRepository().getInstance(25643);
-    print(agent.toJson());
+    var agent = await CusAgentRepository().getInstance(25643);
+    print(agent.toMap());
 
     //*Specialized method for agent repo.
-    agent = await AgentRepository().retrieveByIdUser(682599);
-    print(agent.toJson());
+    //agent = await CusAgentRepository().retrieveByIdUser(682599);
+    print(agent.toMap());
   }
 
   @override

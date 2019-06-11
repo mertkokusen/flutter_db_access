@@ -1,0 +1,15 @@
+﻿CREATE TABLE PRM_PROMOTION
+(
+   ID_PROMOTION               INT PRIMARY KEY
+  ,DS_PROMOTION               NVARCHAR(40)
+  ,DS_PROMOTION_NO            NVARCHAR(10)
+  ,ID_PROMOTION_TYPE          INT NOT NULL
+  ,DT_VALID_FROM              DATE
+  ,DT_VALID_TO                DATE
+  ,DT_DELIVERY_DUE            DATE
+  ,ID_APPLICATION_CONDITION   INT
+  ,MT_USAGE_LIMIT             INT
+  ,DS_NOTE                    NVARCHAR(250) NULL
+  ,FL_ERP                     BOOLEAN DEFAULT 0 NOT NULL
+  ,DS_ERP_CODE                NVARCHAR(20) NULL
+)

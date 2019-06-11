@@ -20,8 +20,7 @@ class BaseRepositoryImpl implements BaseRepository {
     database = DBProvider.db.database;
   }
 
-  Future<List<Map<String, dynamic>>> rawQuery(String sql,
-      [List<dynamic> arguments]) async {
+  Future<List<Map<String, dynamic>>> rawQuery(String sql, [List<dynamic> arguments]) async {
     final maplist = await (await database).rawQuery(sql, arguments);
     return maplist;
   }
@@ -32,23 +31,16 @@ class BaseRepositoryImpl implements BaseRepository {
   }
 
   Future<bool> deleteItem(String itemId) async {
-    return (await (await database)
-            .delete(table, where: '$column = ?', whereArgs: [itemId])) >
-        0;
+    return (await (await database).delete(table, where: '$column = ?', whereArgs: [itemId])) > 0;
   }
 
-  Future<bool> updateItem(String itemId, Map<String, dynamic> item,
-      {Transaction tnx}) async {
+  Future<bool> updateItem(String itemId, Map<String, dynamic> item, {Transaction tnx}) async {
     DatabaseExecutor executor = tnx ?? (await database);
-    return (await executor
-            .update(table, item, where: '$column = ?', whereArgs: [itemId])) >
-        0;
+    return (await executor.update(table, item, where: '$column = ?', whereArgs: [itemId])) > 0;
   }
 
-  Future<Map<String, dynamic>> getItem(String itemId,
-      [List<String> columns]) async {
-    final maplist = await (await database).query(table,
-        columns: columns, where: '$column = ?', whereArgs: [itemId]);
+  Future<Map<String, dynamic>> getItem(String itemId, [List<String> columns]) async {
+    final maplist = await (await database).query(table, columns: columns, where: '$column = ?', whereArgs: [itemId]);
     return maplist.first;
   }
 

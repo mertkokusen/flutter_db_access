@@ -1,0 +1,12 @@
+﻿CREATE TABLE PRM_PROMOTION_RULE_DETAIL
+(
+   ID_PROMOTION_RULE_DETAIL   INT PRIMARY KEY
+  ,ID_PROMOTION_RULE          INT NOT NULL
+  ,ID_PROMOTION               INT NOT NULL
+  ,ID_PRODUCT_GROUP           INT
+  ,ID_PRODUCT                 INT
+  ,MT_AMOUNT_FROM             INT
+  ,MT_AMOUNT_TO               INT
+  ,ID_UNIT                    INT
+  ,ID_CURRENCY                INT
+)

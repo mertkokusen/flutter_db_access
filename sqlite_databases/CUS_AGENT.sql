@@ -1,0 +1,13 @@
+﻿CREATE TABLE CUS_AGENT
+(
+   ID_AGENT                 INT PRIMARY KEY
+  ,DS_AGENT                 NVARCHAR(100)
+  ,ID_USER                  INT NOT NULL
+  ,ID_DEALER                INT NOT NULL
+  ,ID_ROUTE                 INT NOT NULL
+  ,ID_SALES_ORG             INT NOT NULL
+  ,ID_VISIT_PLAN            BIGINT NOT NULL
+  ,DS_PARAMETER             NVARCHAR(20) NOT NULL
+  ,FL_DAY_FINISHED          BOOLEAN
+  ,DT_LAST_VISIT_LIST_DAY   DATE
+)
