@@ -1,4 +1,4 @@
-import 'package:database_access_layer/entities/cus/visit_type.gen.dart';
+import 'package:database_access_layer/generated_entity/cus/visit_type.gen.dart';
 import 'package:database_access_layer/repositories/base_provider.dart';
 
 part '../../generated_repositories/cus/visit_type_repository.gen.dart';

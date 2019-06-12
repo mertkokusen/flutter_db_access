@@ -1,4 +1,4 @@
-import 'package:database_access_layer/entities/cus/request_attribute.gen.dart';
+import 'package:database_access_layer/generated_entity/cus/request_attribute.gen.dart';
 import 'package:database_access_layer/repositories/base_provider.dart';
 
 part '../../generated_repositories/cus/request_attribute_repository.gen.dart';

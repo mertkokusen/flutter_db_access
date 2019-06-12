@@ -1,4 +1,4 @@
-import 'package:database_access_layer/entities/cus/product_exclusion.gen.dart';
+import 'package:database_access_layer/generated_entity/cus/product_exclusion.gen.dart';
 import 'package:database_access_layer/repositories/base_provider.dart';
 
 part '../../generated_repositories/cus/product_exclusion_repository.gen.dart';

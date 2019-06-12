@@ -1,4 +1,4 @@
-import 'package:database_access_layer/entities/acc/payment_type.gen.dart';
+import 'package:database_access_layer/generated_entity/acc/payment_type.gen.dart';
 import 'package:database_access_layer/repositories/base_provider.dart';
 
 part '../../generated_repositories/acc/payment_type_repository.gen.dart';

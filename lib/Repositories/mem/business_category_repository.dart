@@ -1,4 +1,4 @@
-import 'package:database_access_layer/entities/mem/business_category.gen.dart';
+import 'package:database_access_layer/generated_entity/mem/business_category.gen.dart';
 import 'package:database_access_layer/repositories/base_provider.dart';
 
 part '../../generated_repositories/mem/business_category_repository.gen.dart';

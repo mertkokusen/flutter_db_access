@@ -1,4 +1,4 @@
-import 'package:database_access_layer/entities/mem/inventory.gen.dart';
+import 'package:database_access_layer/generated_entity/mem/inventory.gen.dart';
 import 'package:database_access_layer/repositories/base_provider.dart';
 
 part '../../generated_repositories/mem/inventory_repository.gen.dart';

@@ -1,4 +1,4 @@
-import 'package:database_access_layer/entities/cus/request_approval_status.gen.dart';
+import 'package:database_access_layer/generated_entity/cus/request_approval_status.gen.dart';
 import 'package:database_access_layer/repositories/base_provider.dart';
 
 part '../../generated_repositories/cus/request_approval_status_repository.gen.dart';

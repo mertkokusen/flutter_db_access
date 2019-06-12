@@ -73,4 +73,5 @@ parseText(String path) async {
     fieldNamesAndTypes: fieldNamesAndTypes,
   );
   entityClassModel.createClass();
+  entityClassModel.createClassGen();
 }

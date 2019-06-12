@@ -1,3 +1,4 @@
+import 'package:database_access_layer/generated_entity/acc/cash_order_detail.gen.dart';
 import 'package:flutter/material.dart';
 
 //import 'Repositories/cus_agent_repository.gen.dart';

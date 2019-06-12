@@ -1,4 +1,4 @@
-import 'package:database_access_layer/entities/cus/customer_telephone.gen.dart';
+import 'package:database_access_layer/generated_entity/cus/customer_telephone.gen.dart';
 import 'package:database_access_layer/repositories/base_provider.dart';
 
 part '../../generated_repositories/cus/customer_telephone_repository.gen.dart';

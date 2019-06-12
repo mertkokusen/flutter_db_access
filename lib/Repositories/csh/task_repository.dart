@@ -1,4 +1,4 @@
-import 'package:database_access_layer/entities/csh/task.gen.dart';
+import 'package:database_access_layer/generated_entity/csh/task.gen.dart';
 import 'package:database_access_layer/repositories/base_provider.dart';
 
 part '../../generated_repositories/csh/task_repository.gen.dart';

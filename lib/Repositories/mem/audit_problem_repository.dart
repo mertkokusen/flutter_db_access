@@ -1,4 +1,4 @@
-import 'package:database_access_layer/entities/mem/audit_problem.gen.dart';
+import 'package:database_access_layer/generated_entity/mem/audit_problem.gen.dart';
 import 'package:database_access_layer/repositories/base_provider.dart';
 
 part '../../generated_repositories/mem/audit_problem_repository.gen.dart';

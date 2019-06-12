@@ -1,4 +1,4 @@
-import 'package:database_access_layer/entities/cus/contract.gen.dart';
+import 'package:database_access_layer/generated_entity/cus/contract.gen.dart';
 import 'package:database_access_layer/repositories/base_provider.dart';
 
 part '../../generated_repositories/cus/contract_repository.gen.dart';

@@ -1,4 +1,4 @@
-import 'package:database_access_layer/entities/acc/transaction_history.gen.dart';
+import 'package:database_access_layer/generated_entity/acc/transaction_history.gen.dart';
 import 'package:database_access_layer/repositories/base_provider.dart';
 
 part '../../generated_repositories/acc/transaction_history_repository.gen.dart';

@@ -1,4 +1,4 @@
-import 'package:database_access_layer/entities/acc/tax_matrix.gen.dart';
+import 'package:database_access_layer/generated_entity/acc/tax_matrix.gen.dart';
 import 'package:database_access_layer/repositories/base_provider.dart';
 
 part '../../generated_repositories/acc/tax_matrix_repository.gen.dart';

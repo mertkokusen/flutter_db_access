@@ -1,4 +1,4 @@
-import 'package:database_access_layer/entities/csh/invoice_detail.gen.dart';
+import 'package:database_access_layer/generated_entity/csh/invoice_detail.gen.dart';
 import 'package:database_access_layer/repositories/base_provider.dart';
 
 part '../../generated_repositories/csh/invoice_detail_repository.gen.dart';

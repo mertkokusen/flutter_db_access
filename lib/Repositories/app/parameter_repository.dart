@@ -1,4 +1,4 @@
-import 'package:database_access_layer/entities/app/parameter.gen.dart';
+import 'package:database_access_layer/generated_entity/app/parameter.gen.dart';
 import 'package:database_access_layer/repositories/base_provider.dart';
 
 part '../../generated_repositories/app/parameter_repository.gen.dart';

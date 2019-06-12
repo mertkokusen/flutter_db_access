@@ -1,4 +1,4 @@
-import 'package:database_access_layer/entities/mem/transaction_type.gen.dart';
+import 'package:database_access_layer/generated_entity/mem/transaction_type.gen.dart';
 import 'package:database_access_layer/repositories/base_provider.dart';
 
 part '../../generated_repositories/mem/transaction_type_repository.gen.dart';

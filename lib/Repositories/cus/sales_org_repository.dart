@@ -1,4 +1,4 @@
-import 'package:database_access_layer/entities/cus/sales_org.gen.dart';
+import 'package:database_access_layer/generated_entity/cus/sales_org.gen.dart';
 import 'package:database_access_layer/repositories/base_provider.dart';
 
 part '../../generated_repositories/cus/sales_org_repository.gen.dart';

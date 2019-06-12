@@ -9,10 +9,26 @@ class EntityClassModel {
 
   EntityClassModel({this.className, this.domainName, this.fieldNamesAndTypes});
 
-  createClass() async {
+  createClassGen() async {
     StringBuffer stringBuffer = StringBuffer();
     stringBuffer.write('''
-class ${convertPascalCase(className)} {
+abstract class ${convertPascalCase(className)}Abstract {}
+  ''');
+
+    await createNewGenFile(className, domainName, stringBuffer);
+    stringBuffer.clear();
+  }
+
+  createClass() async {
+    StringBuffer stringBuffer = StringBuffer();
+
+    stringBuffer.write("\n");
+
+    stringBuffer.write('''
+import 'package:database_access_layer/entity/$domainName/${className.toLowerCase()}.dart';
+
+// GENERATED CODE - DO NOT MODIFY BY HAND
+class ${convertPascalCase(className)} extends ${convertPascalCase(className)}Abstract{
   ''');
 
     // Class Fields Part
@@ -82,8 +98,17 @@ ${changeVariableType(type)} ${convertCamelCase(name)};
   }
 
   Future createNewFile(String className, String domainName, StringBuffer stringBuffer) async {
-    Directory myDir = await new Directory('lib/entities/$domainName').create();
+    Directory myDir = await new Directory('lib/generated_entity/$domainName').create();
     File newFile = File('${myDir.path}/${convertSnakeCase(className)}.gen.dart');
+    IOSink sink = newFile.openWrite();
+    sink.write(stringBuffer);
+    await sink.flush();
+    await sink.close();
+  }
+
+  Future createNewGenFile(String className, String domainName, StringBuffer stringBuffer) async {
+    Directory myDir = await new Directory('lib/entity/$domainName').create(recursive: true);
+    File newFile = File('${myDir.path}/${convertSnakeCase(className)}.dart');
     IOSink sink = newFile.openWrite();
     sink.write(stringBuffer);
     await sink.flush();

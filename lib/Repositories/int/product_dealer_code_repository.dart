@@ -1,4 +1,4 @@
-import 'package:database_access_layer/entities/int/product_dealer_code.gen.dart';
+import 'package:database_access_layer/generated_entity/int/product_dealer_code.gen.dart';
 import 'package:database_access_layer/repositories/base_provider.dart';
 
 part '../../generated_repositories/int/product_dealer_code_repository.gen.dart';

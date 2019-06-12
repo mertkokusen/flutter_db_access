@@ -1,4 +1,4 @@
-import 'package:database_access_layer/entities/csh/visit.gen.dart';
+import 'package:database_access_layer/generated_entity/csh/visit.gen.dart';
 import 'package:database_access_layer/repositories/base_provider.dart';
 
 part '../../generated_repositories/csh/visit_repository.gen.dart';

@@ -1,4 +1,4 @@
-import 'package:database_access_layer/entities/mem/model.gen.dart';
+import 'package:database_access_layer/generated_entity/mem/model.gen.dart';
 import 'package:database_access_layer/repositories/base_provider.dart';
 
 part '../../generated_repositories/mem/model_repository.gen.dart';

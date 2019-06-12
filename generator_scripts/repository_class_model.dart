@@ -14,7 +14,7 @@ class RepositoryClassModel {
     StringBuffer stringBuffer = StringBuffer();
 
     stringBuffer.write('''
-import 'package:database_access_layer/entities/$domainName/${className.toLowerCase()}.gen.dart';
+import 'package:database_access_layer/generated_entity/$domainName/${className.toLowerCase()}.gen.dart';
 import 'package:database_access_layer/repositories/base_provider.dart';
 
 part '../../generated_repositories/$domainName/${className.toLowerCase()}_repository.gen.dart';

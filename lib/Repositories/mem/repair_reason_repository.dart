@@ -1,4 +1,4 @@
-import 'package:database_access_layer/entities/mem/repair_reason.gen.dart';
+import 'package:database_access_layer/generated_entity/mem/repair_reason.gen.dart';
 import 'package:database_access_layer/repositories/base_provider.dart';
 
 part '../../generated_repositories/mem/repair_reason_repository.gen.dart';

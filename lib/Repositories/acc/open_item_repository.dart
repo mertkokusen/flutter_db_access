@@ -1,4 +1,4 @@
-import 'package:database_access_layer/entities/acc/open_item.gen.dart';
+import 'package:database_access_layer/generated_entity/acc/open_item.gen.dart';
 import 'package:database_access_layer/repositories/base_provider.dart';
 
 part '../../generated_repositories/acc/open_item_repository.gen.dart';

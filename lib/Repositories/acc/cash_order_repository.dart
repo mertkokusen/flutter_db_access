@@ -1,4 +1,4 @@
-import 'package:database_access_layer/entities/acc/cash_order.gen.dart';
+import 'package:database_access_layer/generated_entity/acc/cash_order.gen.dart';
 import 'package:database_access_layer/repositories/base_provider.dart';
 
 part '../../generated_repositories/acc/cash_order_repository.gen.dart';

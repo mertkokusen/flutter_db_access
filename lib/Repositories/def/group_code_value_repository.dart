@@ -1,4 +1,4 @@
-import 'package:database_access_layer/entities/def/group_code_value.gen.dart';
+import 'package:database_access_layer/generated_entity/def/group_code_value.gen.dart';
 import 'package:database_access_layer/repositories/base_provider.dart';
 
 part '../../generated_repositories/def/group_code_value_repository.gen.dart';

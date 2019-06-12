@@ -1,4 +1,4 @@
-import 'package:database_access_layer/entities/mem/request_header.gen.dart';
+import 'package:database_access_layer/generated_entity/mem/request_header.gen.dart';
 import 'package:database_access_layer/repositories/base_provider.dart';
 
 part '../../generated_repositories/mem/request_header_repository.gen.dart';

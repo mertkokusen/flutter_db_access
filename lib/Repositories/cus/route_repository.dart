@@ -1,4 +1,4 @@
-import 'package:database_access_layer/entities/cus/route.gen.dart';
+import 'package:database_access_layer/generated_entity/cus/route.gen.dart';
 import 'package:database_access_layer/repositories/base_provider.dart';
 
 part '../../generated_repositories/cus/route_repository.gen.dart';
