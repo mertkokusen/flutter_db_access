@@ -4,24 +4,62 @@ import 'package:recase/recase.dart';
 
 class RepositoryClassModel {
   final String className;
+  String domainName;
   String primaryKeyName;
   final Map<String, String> fieldNamesAndTypes;
 
-  RepositoryClassModel({this.className, this.primaryKeyName, this.fieldNamesAndTypes});
+  RepositoryClassModel({this.className, this.domainName, this.primaryKeyName, this.fieldNamesAndTypes});
 
   createClass() async {
     StringBuffer stringBuffer = StringBuffer();
 
     stringBuffer.write('''
-import 'package:database_access_layer/Entities/${convertSnakeCase(className)}.gen.dart';
-import 'base_provider.dart';
+import 'package:database_access_layer/entities/$domainName/${className.toLowerCase()}.gen.dart';
+import 'package:database_access_layer/repositories/base_provider.dart';
+
+part '../../generated_repositories/$domainName/${className.toLowerCase()}_repository.gen.dart';
+
+abstract class ${convertPascalCase(className)}Repository extends _${convertPascalCase(className)}RepositoryGenerated {
+  factory ${convertPascalCase(className)}Repository() = _${convertPascalCase(className)}RepositoryImpl;
+}
+
+class _${convertPascalCase(className)}RepositoryImpl extends _${convertPascalCase(className)}RepositoryGeneratedImpl
+    implements ${convertPascalCase(className)}Repository {
+  static _${convertPascalCase(className)}RepositoryImpl _this;
+  factory _${convertPascalCase(className)}RepositoryImpl() {
+    if (_this == null) {
+      _this = new _${convertPascalCase(className)}RepositoryImpl._();
+    }
+    return _this;
+  }
+  _${convertPascalCase(className)}RepositoryImpl._();
+}
+
+''');
+
+    await createNewFile(className, domainName, stringBuffer);
+    stringBuffer.clear();
+  }
+
+  createGenClass() async {
+    StringBuffer stringBuffer = StringBuffer();
+
+    stringBuffer.write('''
+
+part of '../../repositories/$domainName/${className.toLowerCase()}_repository.dart';
 
 abstract class _${convertPascalCase(className)}RepositoryGenerated {
   Future<${convertPascalCase(className)}> getInstance(int idAgent);
-  Future<bool> save(${convertPascalCase(className)} agent);
   Future<List<${convertPascalCase(className)}>> retrieveAll();
-}
+
 ''');
+
+    if (primaryKeyName.isNotEmpty) {
+      stringBuffer.write('''
+ Future<bool> save(${convertPascalCase(className)} agent);
+''');
+    }
+    stringBuffer.write("}");
 
     stringBuffer.write("\n");
 
@@ -96,13 +134,22 @@ class _${convertPascalCase(className)}RepositoryImpl extends _${convertPascalCas
 */
 ''');
 
-    await createNewFile(className, stringBuffer);
+    await createNewGenFile(className, domainName, stringBuffer);
     stringBuffer.clear();
   }
 
-  Future createNewFile(String className, StringBuffer stringBuffer) async {
-    String outPath = "lib/Repositories";
-    File newFile = File('$outPath/${convertSnakeCase(className)}_repository.gen.dart');
+  Future createNewFile(String className, String domainName, StringBuffer stringBuffer) async {
+    Directory myDir = await new Directory('lib/repositories/$domainName').create();
+    File newFile = File('${myDir.path}/${convertSnakeCase(className)}_repository.dart');
+    IOSink sink = newFile.openWrite();
+    sink.write(stringBuffer);
+    await sink.flush();
+    await sink.close();
+  }
+
+  Future createNewGenFile(String className, String domainName, StringBuffer stringBuffer) async {
+    Directory myDir = await new Directory('lib/generated_repositories/$domainName').create();
+    File newFile = File('${myDir.path}/${convertSnakeCase(className)}_repository.gen.dart');
     IOSink sink = newFile.openWrite();
     sink.write(stringBuffer);
     await sink.flush();

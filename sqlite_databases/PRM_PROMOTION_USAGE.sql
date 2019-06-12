@@ -1,7 +1,0 @@
-﻿CREATE TABLE PRM_PROMOTION_USAGE
-(
-   ID_PROMOTION_USAGE      INT PRIMARY KEY
-  ,ID_PROMOTION            INT
-  ,ID_CUSTOMER             INT
-  ,MT_USAGE                INT  
-)

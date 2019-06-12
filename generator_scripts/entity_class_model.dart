@@ -4,13 +4,14 @@ import 'package:recase/recase.dart';
 
 class EntityClassModel {
   final String className;
+  final String domainName;
   final Map<String, String> fieldNamesAndTypes;
 
-  EntityClassModel({this.className, this.fieldNamesAndTypes});
+  EntityClassModel({this.className, this.domainName, this.fieldNamesAndTypes});
 
   createClass() async {
     StringBuffer stringBuffer = StringBuffer();
-    stringBuffer.write('''  
+    stringBuffer.write('''
 class ${convertPascalCase(className)} {
   ''');
 
@@ -76,13 +77,13 @@ ${changeVariableType(type)} ${convertCamelCase(name)};
     stringBuffer.write("\n");
     stringBuffer.write("}");
 
-    await createNewFile(className, stringBuffer);
+    await createNewFile(className, domainName, stringBuffer);
     stringBuffer.clear();
   }
 
-  Future createNewFile(String className, StringBuffer stringBuffer) async {
-    String outPath = "lib/Entities";
-    File newFile = File('$outPath/${convertSnakeCase(className)}.gen.dart');
+  Future createNewFile(String className, String domainName, StringBuffer stringBuffer) async {
+    Directory myDir = await new Directory('lib/entities/$domainName').create();
+    File newFile = File('${myDir.path}/${convertSnakeCase(className)}.gen.dart');
     IOSink sink = newFile.openWrite();
     sink.write(stringBuffer);
     await sink.flush();

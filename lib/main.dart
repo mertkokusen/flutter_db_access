@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'Repositories/cus_agent_repository.gen.dart';
+//import 'Repositories/cus_agent_repository.gen.dart';
 
 void main() => runApp(MyApp());
 
@@ -72,12 +72,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _testDB() async {
     //*Standard method from base repo.
-    var agent = await CusAgentRepository().getInstance(25643);
-    print(agent.toMap());
+    //var agent = await CusAgentRepository().getInstance(25643);
+    //print(agent.toMap());
 
     //*Specialized method for agent repo.
     //agent = await CusAgentRepository().retrieveByIdUser(682599);
-    print(agent.toMap());
+    //print(agent.toMap());
   }
 
   @override

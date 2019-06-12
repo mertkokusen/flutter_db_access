@@ -29,8 +29,10 @@ parseText(String path) async {
     indexOfClosingParenthes = text.lastIndexOf(")", text.indexOf("CREATE TRIGGER"));
   }
 
-  String tableName = (text.substring(lastIndexOfCreateTable, indexOfOpeningParenthes).trim());
+  String tableName = text.substring(lastIndexOfCreateTable, indexOfOpeningParenthes).trim();
+  tableName = tableName.substring(tableName.indexOf("_") + 1);
   String tableFields = text.substring(indexOfOpeningParenthes + 1, indexOfClosingParenthes);
+  String domainName = text.substring(lastIndexOfCreateTable, indexOfOpeningParenthes).trim().split("_")[0].toLowerCase();
   String primaryKeyName = "";
 
   // Remove ( ,CONSTRAINT UQ_SURVEY_CUSTOMER_VISIT UNIQUE (ID_SURVEY,ID_CUSTOMER,ID_VISIT, ID_TSM_ACTIVITY) )
@@ -55,25 +57,20 @@ parseText(String path) async {
   }
   print("$tableName\n");
 
-  try {
-    RepositoryClassModel repositoryClassModel = RepositoryClassModel(
-      className: tableName,
-      primaryKeyName: primaryKeyName,
-      fieldNamesAndTypes: fieldNamesAndTypes,
-    );
+  RepositoryClassModel repositoryClassModel = RepositoryClassModel(
+    className: tableName,
+    domainName: domainName,
+    primaryKeyName: primaryKeyName,
+    fieldNamesAndTypes: fieldNamesAndTypes,
+  );
 
-    repositoryClassModel.createClass();
-  } catch (e) {
-    print(tableName);
-  }
+  repositoryClassModel.createClass();
+  repositoryClassModel.createGenClass();
 
-  try {
-    EntityClassModel entityClassModel = EntityClassModel(
-      className: tableName,
-      fieldNamesAndTypes: fieldNamesAndTypes,
-    );
-    entityClassModel.createClass();
-  } catch (e) {
-    print(tableName);
-  }
+  EntityClassModel entityClassModel = EntityClassModel(
+    className: tableName,
+    domainName: domainName,
+    fieldNamesAndTypes: fieldNamesAndTypes,
+  );
+  entityClassModel.createClass();
 }
