@@ -1,3 +1,4 @@
+import 'package:database_access_layer/database.dart';
 import 'package:database_access_layer/generated_entity/acc/cash_order_detail.gen.dart';
 import 'package:flutter/material.dart';
 
@@ -14,9 +15,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      // home: MyHomePage(title: 'Flutter Demo Home Page'),
-      onGenerateRoute: onGenerateRoute,
-      initialRoute: MyHomePage.routeName,
+      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      //onGenerateRoute: onGenerateRoute,
+      //initialRoute: MyHomePage.routeName,
     );
   }
 
@@ -79,6 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
     //*Specialized method for agent repo.
     //agent = await CusAgentRepository().retrieveByIdUser(682599);
     //print(agent.toMap());
+    DBProvider.db.initDB();
   }
 
   @override
